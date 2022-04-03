@@ -15,6 +15,7 @@ export class HomepageComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    console.log("Homepage")
     this._api.getCenter().subscribe((data:any) => (this.centerData = data));
   }
   Search(){

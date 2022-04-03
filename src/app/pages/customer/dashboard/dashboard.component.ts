@@ -70,19 +70,27 @@ export class DashboardComponent implements OnInit {
       return;
       
     }
-    else if(this.productDetails.modelNumber.trim()==''|| this.productDetails.modelNumber.trim()==null){
+    if(this.productDetails.modelNumber.trim()==''|| this.productDetails.modelNumber.trim()==null){
       this._snake.open("product model Number Required","Cancel",{duration:2000})
       return;
     }
-    else if(this.productDetails.contactNumber.trim() == ''|| this.productDetails.contactNumber.trim()==null){
+    if(this.productDetails.contactNumber.trim() == ''|| this.productDetails.contactNumber.trim()==null){
       this._snake.open("product contact Number Required","Cancel",{duration:2000})
       return;
     }
-    else if(this.productDetails.enterProblem.trim() == ''|| this.productDetails.enterProblem.trim()==null){
+    var s = (String)(this.productDetails.contactNumber)
+    console.log(s.length);
+    
+    if(s.length < 10 || s.length>10 ){
+      this._snake.open("Enter valid mobile number of length 10","Cancel",
+      {duration:2000})
+        return;
+    }
+    if(this.productDetails.enterProblem.trim() == ''|| this.productDetails.enterProblem.trim()==null){
       this._snake.open("product Describe Problem Required","Cancel",{duration:2000})
       return;
     }
-    else if(this.productDetails.dateOfPurchase.trim()!=''){
+    if(this.productDetails.dateOfPurchase.trim()!=''){
       let date3 = new Date(this.productDetails.dateOfPurchase)
     
       let date2 = new Date();

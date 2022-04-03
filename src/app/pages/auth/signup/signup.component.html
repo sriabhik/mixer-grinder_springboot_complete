@@ -10,9 +10,9 @@
                     <h1 class="text-center"><strong>Register Here</strong></h1>
                     <!-- {{user|json}} -->
                     <form (ngSubmit)="formSubmit()">
-                        <mat-form-field class ="full-width" appearance="outline">
-                            <mat-label>Enter admin/customer</mat-label>
-                            <input required type="text" [(ngModel)]="user.userRole" 
+                        <mat-form-field [hidden]="true" class ="full-width" appearance="outline">
+                           
+                            <input  type="text" [(ngModel)]="user.userRole" 
                             name="userRole" 
                             matInput placeholder="Enter admin/customer">
                             
@@ -21,7 +21,7 @@
                         <mat-form-field class ="full-width" appearance="outline">
                             <mat-label>Email</mat-label>
                             <!-- email validator -->
-                            <input type = "email" required  [(ngModel)]="user.email"
+                            <input type = "email"  [(ngModel)]="user.email"
                             [(ngModel)]="user.username" 
                             name="email"  
                             ngModel [email]="true"
@@ -32,7 +32,7 @@
                         <!-- name field -->
                         <mat-form-field class ="full-width" appearance="outline">
                             <mat-label>Enter Name</mat-label>
-                            <input required  type="text" 
+                            <input   type="text" 
                             [(ngModel)]="user.name"
                             name ="name"
                             matInput placeholder="Enter Name">
@@ -41,7 +41,7 @@
                             <!-- phone field -->
                         <mat-form-field class ="full-width" appearance="outline">
                             <mat-label>mobileNumber</mat-label>
-                            <input required  type ="number" 
+                            <input   type ="number" 
                             [(ngModel)]="user.mobileNumber"
                             name ="mobileNumber"
                             matInput placeholder="Enter mobileNumber">

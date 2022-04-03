@@ -1,31 +1,32 @@
-<div class="bootstrap-wrapper">
+<div style="color:royalblue"  class="bootstrap-wrapper">
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-3 mt50">  
-                <mat-card>
-                    <h1><strong style=" color: chocolate;">Center :</strong>{{e.serviceCenterName}}</h1>
+            <div  class="col-md-3 mt50">
+                <strong style="font-size: 20px;">Center Details</strong>  
+                <mat-card class="mt20" style="background-color:darkseagreen;">
+                    <h1><strong>Center :</strong>{{e.serviceCenterName}}</h1>
                     
-                    <strong style=" color: chocolate;">Address : </strong> {{ e.serviceCenterAddress }}
+                    <strong style=" color: black;">ADDRESS : </strong> {{ e.serviceCenterAddress }}
                     <br /><br>
-                    <strong style=" color: chocolate;">Email : </strong> {{ e.serviceCenterMailId }}
+                    <strong >EMAIL : </strong> {{ e.serviceCenterMailId }}
                     <br /><br>
-                    <strong style=" color: chocolate;">Phone Number : </strong> {{ e.serviceCenterPhone }}
+                    <strong>CONTACT  : </strong> {{ e.serviceCenterPhone }}
                     <br /><br>
-                    <strong style=" color: chocolate;">Description : </strong>{{e.serviceCenterDescription}}
+                    <strong >DESCRIPTION : </strong>{{e.serviceCenterDescription}}
                     <br />      
                 </mat-card>         
             </div>
-            <div class="col-md-9">
-                <mat-card>
+            <div  class="col-md-9">
+                <mat-card  class="c1 mt20 mb20" style="color:darkslategrey">
                     <!-- {{productDetails|json}} -->
-                    <h1>Booking Appointment</h1>
+                    <h1 style="font-weight: bolder;" class="text-center">BOOK APPOINTMENT</h1>
                     <div class="container">
                         <div class="row">
                             <div class="col-md-8 offset-md-2">
                                 <!-- {{quizData | json}} -->
-                                <form (ngSubmit)="formSubmit()">
-                                    <mat-form-field class ="w100" appearance="outline">
-                                        <mat-label>Enter Product Name</mat-label>
+                                <form  (ngSubmit)="formSubmit()">
+                                    <mat-form-field style="color:cadetblue;" class ="w100" appearance="outline">
+                                        <mat-label style="color: black;">Enter Product Name</mat-label>
                                         <input 
                                             type = "text" 
                                             name="productName" 
@@ -38,7 +39,7 @@
                                   
                                         <!-- numberr of question -->
                                             <mat-form-field class ="w100" appearance="outline">
-                                                <mat-label>Enter Model Number</mat-label>
+                                                <mat-label style="color: black;">Enter Model Number</mat-label>
                                                 <input 
                                                     type = "text" 
                                                     name="modelNumber" 
@@ -50,7 +51,7 @@
                
                                         <!-- Number -->
                                             <mat-form-field class ="w100" appearance="outline">
-                                                <mat-label>Enter Contact Number</mat-label>
+                                                <mat-label style="color: black;">Enter Contact Number</mat-label>
                                                 <input 
                                                     type = "text" 
                                                     name="contactNumber" 
@@ -62,7 +63,7 @@
                                     
                         
                                    <mat-form-field class ="w100" appearance="outline">
-                                    <mat-label>Enter Problem</mat-label>
+                                    <mat-label style="color: black;">Enter Problem</mat-label>
                                     <textarea 
                                         type = "text" 
                                         name="productDescription" 
@@ -73,7 +74,7 @@
                                         ></textarea>
                                 </mat-form-field>
                                 <mat-form-field appearance="outline">
-                                    <mat-label>Enter Date Of Purchase</mat-label>
+                                    <mat-label style="color: black;">Choose Appointment Date</mat-label>
                                     <input 
                                        
                                         type = "date" 
@@ -82,12 +83,12 @@
                                         matInput
                                         [(ngModel)]="productDetails.dateOfPurchase"
                                         >
-                                        <mat-hint>Appointment Date must be within in 5 Days range from Current Date</mat-hint>
+                                        <mat-hint style="color: black;">Appointment Date must be within in 5 Days range from Current Date</mat-hint>
                                 </mat-form-field>
                                     
                                         <!-- select category -->
                                         <mat-form-field class = "w100 mt20" appearance="fill">
-                                            <mat-label>service</mat-label>
+                                            <mat-label style="color: black;" >service</mat-label>
                                             <mat-select  name="serviceCenter" [(ngModel)]="productDetails.serviceCenter.serviceCenterID">
                                               <mat-option [value]="serviceCenterID" >
                                                 {{e.serviceCenterName}}

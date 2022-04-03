@@ -32,6 +32,8 @@ export class ViewBillCustomerComponent implements OnInit {
     this.date =this.datepipe.transform(new Date(), 'yyyy-MM-dd');
   }
   
-
+  f(){
+    window.print()
+  }
 
 }

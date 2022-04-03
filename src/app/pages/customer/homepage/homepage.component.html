@@ -1,7 +1,7 @@
 
 <div class="container-fluid">
     <div class="row">
-      <div class="mt50" *ngIf="centerData.length==0;else hero">
+      <div class="mt50" *ngIf="centerData?.length==0;else hero">
           <strong style="color:black;margin-left: 350px;margin-top: 50px;font-size: 20px;">No Result Found (serviceCenter Not Found) </strong>
       </div>
       <ng-template #hero>
@@ -43,11 +43,11 @@
       
     </div>
   </div>
-<strong *ngIf="centerData.length != 0" style="color:black;margin-left: 500px;margin-top: 50pxs;">Note : Showing Available Centers For The Next Five Days From Current Date</strong>
-  <div class="navbar" style="margin-left: 625px;margin-top:100px; width: 300px;font-display:initial;">
+
+  <div class="navbar" style="margin-left: 625px;margin-top:50px; width: 300px;font-display:initial;">
     <input  style="background-color:black;"
             class = "form-control" 
-            type="text" 
+            type="text"
             name="serviceCenterName" 
             [(ngModel)]="serviceCenterName" 
             (ngModelChange)="Search()"
@@ -60,7 +60,9 @@
             aria-label="Clear"
             *ngIf="serviceCenterName"
             (click)="onSearchClear()"
-              >
+            >  
             <mat-icon >close</mat-icon>
             </button>
   </div>
+  <br><br><br><br>
+  <strong class="mb20" *ngIf="centerData?.length>0" style="font-size: 20px; color:black;margin-left: 500px;margin-top: 100px;">Note : Showing Available Centers For The Next Five Days From Current Date</strong>

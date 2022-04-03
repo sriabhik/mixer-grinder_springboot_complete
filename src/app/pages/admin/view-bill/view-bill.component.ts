@@ -33,5 +33,7 @@ export class ViewBillComponent implements OnInit {
   }
   
  
-
+  f(){
+    window.print()
+  }
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 import { UserService } from 'src/app/service/user.service';
 
 interface datatype {
@@ -32,15 +33,29 @@ export class SignupComponent implements OnInit {
     userRole:'',
     name:''
   }
-  constructor(private userService :UserService,private snack:MatSnackBar) { } 
+  constructor(  private userService :UserService,
+                private snack:MatSnackBar,
+                private _route:Router
+                ) { } 
 
   ngOnInit(): void {
   }
   formSubmit(){
+    this.user.userRole='customer';
     if((this.user.userRole!=='admin' && this.user.userRole!='customer') ){
       this.snack.open("Enter admin/customer","Cancel",
       {duration:2000})
       this.f()
+        return;
+    }
+    if(this.user.email==''||this.user.email==null){
+      this.snack.open("Email Required","Cancel",
+      {duration:2000})
+        return;
+    }
+    if(!this.user.email.includes(".")){
+      this.snack.open("Invalid Email ","Cancel",
+      {duration:2000})
         return;
     }
     if(this.user.name ==''||this.user.name==null){
@@ -49,19 +64,15 @@ export class SignupComponent implements OnInit {
         return;
     }
     
-    if(this.user.email==''||this.user.email==null){
-      this.snack.open("Email Required","Cancel",
-      {duration:2000})
-        return;
-    }
+    
     if(this.user.mobileNumber ==''||this.user.mobileNumber==null){
       this.snack.open("mobileNumber Required","Cancel",
       {duration:2000})
         return;
     }
-    console.log(this.user.mobileNumber);
+   
     var s = (String)(this.user.mobileNumber)
-    console.log(s.length);
+   
     
     if(s.length < 10 || s.length>10 ){
       this.snack.open("Enter valid mobile number of length 10","Cancel",
@@ -89,9 +100,9 @@ export class SignupComponent implements OnInit {
       this.userService.addUser(this.user,this.user.userRole).subscribe(
         (data)=>{
           //success
-          this.f()
           this.snack.open("Registration Successfull","Cancel",{
             duration:2000})
+            this.f()
           
         },
         (error)=>

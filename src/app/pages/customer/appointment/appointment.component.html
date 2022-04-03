@@ -42,7 +42,7 @@ tr:nth-child(even) {
           <td><button mat-raised-button *ngIf="!q.status ; else show" color="accent">In Progress</button></td>
           
           <ng-template #show>
-            <td><button mat-raised-button color="accent" [routerLink]="'/customer/viewBill/'+q.pId">Service Completed(Get Bill) </button></td>
+            <td><button mat-raised-button color="success" [routerLink]="'/customer/viewBill/'+q.pId">Service Completed(Get Bill) </button></td>
           </ng-template>
         </tr>
         
@@ -50,6 +50,10 @@ tr:nth-child(even) {
       
      
 </mat-card>
+<br><br>
+<div class="mt20" *ngIf="BookingData?.length ==0">
+  <strong  style="font-size:large; margin-left: 600px; color:crimson">You Don't Have Registered Any Booking Yet!!</strong>
+</div>
     </body>
 </html>
 

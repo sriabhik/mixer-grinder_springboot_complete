@@ -53,8 +53,8 @@ export class LoginComponent implements OnInit {
       //refeer interceptor file
       this.login.getCurrentUser().subscribe((user:any)=>{
         this.login.setUser(user);
-        console.log(user);
-        if(user.password == this.loginData.password){
+      
+        if(this.loginData.password){
             // redirect if admin
           // redirect if normal 
           if(this.login.getUserRole()=='admin'){
@@ -79,9 +79,10 @@ export class LoginComponent implements OnInit {
      })
     },
     (error)=>{
-      console.log("error")
-      console.log(error)
-      this._snake.open("Check Details again or Try Again","Cancel",{duration:2000})
+      this._snake.open("Credentials Invalid","Cancel",{duration:2000})
+      this.LoginData.email=''
+          this.LoginData.password=''
+          this.router.navigate([''])  
     })
   }
   public togglePasswordVisibility(): void {

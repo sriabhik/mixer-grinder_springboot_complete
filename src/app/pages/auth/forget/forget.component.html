@@ -1,0 +1,46 @@
+<app-navbar></app-navbar>
+<div class="bootstrap-wrapper mt20">
+    <div class="container">
+        <div class ="row">
+            <div class="col-md-6 offset-md-3">
+                <h1 class="text-center" style="color: green;"><strong>Password Recovery</strong></h1>
+                <mat-card>   
+                    <div class ="container ">
+                
+                    </div>
+                    <h1 class="text-center"><strong>Enter Registered Email</strong></h1>
+                   
+                    <form (ngSubmit)="formSubmit()">
+                        <!-- userEmail field -->
+                        <mat-form-field class ="full-width" appearance="outline">
+                            <mat-label>User Email</mat-label>
+                            <input 
+                                [(ngModel)]="emailData.to"
+                                type="email" 
+                                name="email" 
+                                matInput placeholder="Enter Email">
+                          
+                        
+                        </mat-form-field>
+                        
+                       
+
+                        <div class="container text-center">
+                            <button type="submit" mat-raised-button color="primary">Send OTP</button>
+                            
+                        </div>
+                        <div class="container text-center mt10" >
+                            
+                            <span class="ml10">Back to Login ? </span>
+                            <a  
+                                [routerLink]="''"
+                            >
+                            <span class="ml10">Login</span>
+                        </a>
+                        </div>
+                    </form>
+                </mat-card> 
+            </div>
+        </div>
+    </div>
+</div>

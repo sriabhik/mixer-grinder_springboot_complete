@@ -54,6 +54,9 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { Ng2OrderModule } from 'ng2-order-pipe';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { NgxUiLoaderModule, NgxUiLoaderHttpModule } from "ngx-ui-loader";
+import { ForgetComponent } from './pages/auth/forget/forget.component';
+import { OtpComponent } from './pages/auth/otp/otp.component';
+import { SetPasswordComponent } from './pages/auth/set-password/set-password.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -81,6 +84,9 @@ import { NgxUiLoaderModule, NgxUiLoaderHttpModule } from "ngx-ui-loader";
     UpdateAppointmentComponent,
     ViewBillComponent,
     ViewBillCustomerComponent,
+    ForgetComponent,
+    OtpComponent,
+    SetPasswordComponent,
     
   
   ],
@@ -116,7 +122,7 @@ import { NgxUiLoaderModule, NgxUiLoaderHttpModule } from "ngx-ui-loader";
   providers: [{
     provide: MatDialogRef,
     useValue: {}
-  },authInterceptorProviders,CdkColumnDef],
+  },authInterceptorProviders,CdkColumnDef,ForgetComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

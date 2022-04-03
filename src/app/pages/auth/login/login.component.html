@@ -15,7 +15,7 @@
                             <mat-label>User Email</mat-label>
                             <input 
                                 [(ngModel)]="LoginData.email"
-                                required type="email" 
+                                 type="email" 
                                 name="email" 
                                 matInput placeholder="Enter Email">
                           
@@ -46,6 +46,16 @@
                                 [routerLink]="'/signup'"
                             >
                             <span class="ml10">Sign Up</span>
+                        </a>
+                        </div>
+
+                        <div class="container text-center mt10">
+                          
+                          
+                            <a  
+                                [routerLink]="'/forget'"
+                            >
+                            <span class="ml10">Forget Password ?</span>
                         </a>
                         </div>
                     </form>

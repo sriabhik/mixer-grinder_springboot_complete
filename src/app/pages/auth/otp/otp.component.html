@@ -1,0 +1,49 @@
+<app-navbar></app-navbar>
+<div class="bootstrap-wrapper mt20">
+    <div class="container">
+        <div class ="row">
+            <div class="col-md-6 offset-md-3">
+             
+                <mat-card>   
+                    <div class ="container ">
+                
+                    </div>
+                  
+                    <h1 class="text-center" style="color:darkred"><strong>Enter OTP</strong></h1>
+                    <form (ngSubmit)="formSubmit()">
+                        <div class="alert alert-success" role="alert">
+                           Otp send Successfully
+                          </div>
+                        <!-- userEmail field -->
+                        <mat-form-field class ="full-width" appearance="outline">
+                            <mat-label>Enter OTP</mat-label>
+                            <input 
+                                [(ngModel)]="data"
+                                type="text" 
+                                name="otp" 
+                                matInput placeholder="Enter OTP">
+                          
+                        
+                        </mat-form-field>
+                        
+                       
+
+                        <div class="container text-center">
+                            <button type="submit" mat-raised-button color="primary">Verify</button>
+                            
+                        </div>
+                        <div class="container text-center mt10" >
+                            
+                            <span class="ml10">Back to Login ? </span>
+                            <a  
+                                [routerLink]="''"
+                            >
+                            <span class="ml10">Login</span>
+                        </a>
+                        </div>
+                    </form>
+                </mat-card> 
+            </div>
+        </div>
+    </div>
+</div>

@@ -8,7 +8,10 @@ import { EnterBillComponent } from './pages/admin/enter-bill/enter-bill.componen
 import { HomepageAdminComponent } from './pages/admin/homepage-admin/homepage-admin.component';
 import { ViewAppointmentComponent } from './pages/admin/view-appointment/view-appointment.component';
 import { ViewBillComponent } from './pages/admin/view-bill/view-bill.component';
+import { ForgetComponent } from './pages/auth/forget/forget.component';
 import { LoginComponent } from './pages/auth/login/login.component';
+import { OtpComponent } from './pages/auth/otp/otp.component';
+import { SetPasswordComponent } from './pages/auth/set-password/set-password.component';
 import { SignupComponent } from './pages/auth/signup/signup.component';
 import { AppointmentComponent } from './pages/customer/appointment/appointment.component';
 import { DashboardComponent } from './pages/customer/dashboard/dashboard.component';
@@ -25,6 +28,21 @@ const routes: Routes = [
   {
     path:'signup',
     component:SignupComponent,
+    pathMatch:'full'
+  },
+  {
+    path:'setPassword/:this.email',
+    component:SetPasswordComponent,
+    pathMatch:'full'
+  },
+  {
+    path:'otp/:this.out/:this.emailData.to',
+    component:OtpComponent,
+    pathMatch:'full'
+  },
+  {
+    path:'forget',
+    component:ForgetComponent,
     pathMatch:'full'
   },
   {

@@ -71,5 +71,15 @@ public getCurrentUser(){
     let user = this.getUser()
     return user.authorities[0].authority
   }
-  
+  //otp 
+  public sendEmail(emailData:any){
+    return this.http.post(`${baseUrl}/sendEmail`,emailData);
+  }
+
+  public getUserByEmail(email:any){
+    return this.http.get(`${baseUrl}/getUserByEmail/${email}`)
+  }
+  public updateUser(data:any){
+    return this.http.put(`${baseUrl}/user/updateUser`,data);
+  }
 }

@@ -1,9 +1,12 @@
 
 <div class="displayUser">
+  <br><br>
+<strong  class="mt20" style="font-size:large; margin-left: 700px;color:brown">R e g i s t e r e d &nbsp; - &nbsp;  U s e r s</strong>
     <div class="search-div">
       <mat-form-field class="search-form-field" floatLabel="never">
-        <input
+        <input 
           matInput
+        
           [(ngModel)]="searchKey"
           placeholder="Search"
           autocomplete="off"
@@ -25,19 +28,19 @@
       <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort>
         <!-- Position Column -->
         <ng-container matColumnDef="userName">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header>userName</th>
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Customer Name</th>
           <td mat-cell *matCellDef="let element">{{ element.name }}</td>
         </ng-container>
   
         <!-- Name Column -->
         <ng-container matColumnDef="email">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header>email</th>
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Email</th>
           <td mat-cell *matCellDef="let element">{{ element.email }}</td>
         </ng-container>
   
         <!-- Weight Column -->
         <ng-container matColumnDef="phoneNumber">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header>phoneNumber</th>
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Contact</th>
           <td mat-cell *matCellDef="let element">
             {{ element.mobileNumber }}
           </td>

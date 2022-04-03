@@ -14,6 +14,7 @@ export class CustomerNavbarComponent implements OnInit {
   userData:any
   id:any
   ngOnInit(): void {
+    console.log("Inside onit")
     this.isLoggedIn= this.login.isLoggedIn();
     this.user = this.login.getUser();
     this.login.loginStatusSubject.asObservable().subscribe((data: any)=>{
@@ -23,7 +24,7 @@ export class CustomerNavbarComponent implements OnInit {
     });
     this.login.getCurrentUser().subscribe((user:any)=>{
       this.userData = user
-      console.log(this.userData);
+    
       this.id = this.userData.id
     })
   }
@@ -36,5 +37,7 @@ export class CustomerNavbarComponent implements OnInit {
     
     this.router.navigate([''])
   }
-  
+   toggleMobileMenu(menu: { classList: { toggle: (arg0: string) => void; }; }) {
+    menu.classList.toggle('open');
+} 
 }
