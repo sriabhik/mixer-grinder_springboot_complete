@@ -9,6 +9,7 @@ import com.mixer_grinder_service.model.UserRole;
 import com.mixer_grinder_service.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashSet;
@@ -22,6 +23,9 @@ public class UserController {
     @Autowired
     private UserService userService;
 
+    @Autowired
+    private BCryptPasswordEncoder bCryptPasswordEncoder;
+
     @GetMapping("/test")
     public String test(){
         return "running";
@@ -29,7 +33,8 @@ public class UserController {
     @PostMapping("/signup")
     public User createUser(@RequestBody User user) throws Exception {
 
-
+        // encoding password
+        user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
         Set<UserRole> roles = new HashSet<>();
         Role role = new Role();
         role.setRoleName(user.getUserRole());
@@ -48,6 +53,10 @@ public class UserController {
 
     @PutMapping("/updateUser")
     public User updateUser(@RequestBody  User user){
+        System.out.println(user.getPassword());
+        user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
         return this.userService.updateUser(user);
     }
+
+
 }

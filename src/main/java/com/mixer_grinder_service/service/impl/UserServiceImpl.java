@@ -52,4 +52,10 @@ public class UserServiceImpl implements UserService {
     public User updateUser(User user) {
         return this.userRepository.save(user);
     }
+
+    @Override
+    public User getUserByUserName(String username) {
+        System.out.println(this.userRepository.findByUsername(username));
+        return this.userRepository.findByUsername(username);
+    }
 }

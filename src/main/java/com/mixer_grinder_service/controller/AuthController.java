@@ -54,4 +54,5 @@ public class AuthController {
     public User getCurrentUser(Principal principal){
         return (User)this.userDetailsServiceImpl.loadUserByUsername(principal.getName());
     }
+
 }
