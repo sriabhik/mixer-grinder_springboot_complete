@@ -2,17 +2,19 @@
 
 package com.mixer_grinder_service.controller;
 
-
+import com.razorpay.*;
 import com.mixer_grinder_service.model.Role;
 import com.mixer_grinder_service.model.User;
 import com.mixer_grinder_service.model.UserRole;
 import com.mixer_grinder_service.service.UserService;
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Set;
 
 @RestController
@@ -58,5 +60,21 @@ public class UserController {
         return this.userService.updateUser(user);
     }
 
+    //payment getway
+    @PostMapping("/create_order")
+    @ResponseBody
+    public String createOrder(@RequestBody Map<String,Object> data) throws Exception {
+        System.out.println(data);
+        int amt =Integer.parseInt(data.get("amount").toString());
+        System.out.println(amt);
+        var client =new RazorpayClient("rzp_test_GZrvBqvL6b69GM","rMAnv0T10eg94VmmcynSExnZ");
+        JSONObject ob = new JSONObject();
+        ob.put("amount",amt*100);
+        ob.put("currency","INR");
+        ob.put("receipt","txn_235425");
+        Order order = client.Orders.create(ob);
+        System.out.println(order);
+        return order.toString();
+    }
 
 }
