@@ -10,7 +10,7 @@
                     </div>
                   
                     <h1 class="text-center" style="color:darkred"><strong>Enter OTP</strong></h1>
-                    <form (ngSubmit)="formSubmit()">
+                    <form (ngSubmit)="formSubmit1()">
                         <div class="alert alert-success" role="alert">
                            Otp send Successfully
                           </div>
@@ -30,7 +30,8 @@
 
                         <div class="container text-center">
                             <button type="submit" mat-raised-button color="primary">Verify</button>
-                            
+
+                            <button class="ml10" (click)="fun()" mat-raised-button color="accent">Resend OTP</button>
                         </div>
                         <div class="container text-center mt10" >
                             

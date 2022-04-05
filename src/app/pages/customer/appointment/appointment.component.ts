@@ -3,7 +3,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
 import { LoginService } from 'src/app/service/login.service';
 import { ProductService } from 'src/app/service/product.service';
-
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-appointment',
   templateUrl: './appointment.component.html',
@@ -37,15 +37,26 @@ export class AppointmentComponent implements OnInit {
     } 
     deleteBook(productId:any){
       console.log(productId);
+      Swal.fire({
+        icon:'warning',
+        title:"Delete Appointment?",
+        confirmButtonText:'Delete',
+        
+        showCancelButton:true,
       
-      this.product.deleteBooking(productId).subscribe((success)=>{
-        this.BookingData = this.BookingData.filter(
-          (Product: any) =>
-            Product.pId != productId
-        );
-        this._snack.open("Appointment Deleted","Cancel",{duration:2000})
-      },(error)=>{
-        this._snack.open("Something Went Wrong","Cancel",{duration:2000})
+      }).then((result)=>{
+        if(result.isConfirmed)
+        this.product.deleteBooking(productId).subscribe((success)=>{
+          this.BookingData = this.BookingData.filter(
+            (Product: any) =>
+              Product.pId != productId
+          );
+          this._snack.open("Appointment Deleted","Cancel",{duration:2000})
+        },(error)=>{
+          this._snack.open("Something Went Wrong","Cancel",{duration:2000})
+        })
+        
       })
+      
     }
 }

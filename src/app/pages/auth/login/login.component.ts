@@ -37,12 +37,13 @@ export class LoginComponent implements OnInit {
     this.loginData.username = this.LoginData.email
     this.loginData.password = this.LoginData.password
     if(this.LoginData.email.trim()=='' || this.LoginData.email==null){
-      this._snake.open("Email Required"," ",{duration:2000})
+      this._snake.open("Email Required","Cancel",{duration:2000})
       this.LoginData.password=''
+      return
     }
     else if(this.LoginData.password.trim()==''|| this.LoginData.password==null){
       this._snake.open("Password Required","Cancel",{duration:2000});
-      this.LoginData.email=''
+      
       return;
     }
 

@@ -45,7 +45,7 @@ export class SetPasswordComponent implements OnInit {
   }
   formSubmit(){
    
-    console.log(this.userData);
+   
     
     if( this.password ==''||this.password==null){
       this._snack.open("password Required","Cancel",
@@ -73,8 +73,7 @@ export class SetPasswordComponent implements OnInit {
       this.userDataOr.password=this.password
       this._login.updateUser(this.userDataOr).subscribe((success)=>{
         this._snack.open("Password Updated Successfully","Cancel",{duration:2000})
-        console.log(this.userDataOr);
-        console.log(this.userData);
+       
         
         
         this._router.navigate([''])

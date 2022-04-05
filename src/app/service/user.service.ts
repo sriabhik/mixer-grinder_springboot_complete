@@ -14,5 +14,7 @@ export class UserService {
     return this._http.post(`${baseUrl}/admin/signup`,user);
   
   }
-  
+  public payment(data:any){
+    return this._http.post(`${baseUrl}/user/create_order`,data);
+  }
 }
